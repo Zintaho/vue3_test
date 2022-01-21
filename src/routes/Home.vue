@@ -1,5 +1,6 @@
 <template>
-  <RouterView />
+  <h1>Home</h1>
+  <div class="btn btn-primary">Home</div>
 </template>
 
 <script>
@@ -8,6 +9,6 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import "scss/main.scss";
+<style>
+
 </style>
