@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import MyBtn from './components/MyBtn.vue';
+import MyBtn from '../components/MyBtn.vue';
 import {computed} from 'vue';
 export default {
     components: {

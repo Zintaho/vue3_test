@@ -13,7 +13,7 @@
 
 <script>
 import {ref, computed, watch, onMounted} from 'vue';
-import SB3Component from './components/SB3Component.vue';
+import SB3Component from '../components/SB3Component.vue';
 export default {
     components: {
         SB3Component
