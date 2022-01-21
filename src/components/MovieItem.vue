@@ -1,5 +1,8 @@
 <template>
-  <div>{{movie.Title}}</div>
+  <div>
+      <span>{{movie.Title}}</span>
+      <span>{{` (${movie.imdbID})`}}</span>
+  </div>
 </template>
 
 <script>
