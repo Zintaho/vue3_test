@@ -30,7 +30,6 @@ export default {
                 const {Search, totalResults} = res.data;
                 commit('updateState', {
                     movies: _uniqBy(Search, 'imdbID'),
-                    message: 'Hello world!',
                     loading: true
                 });
     
@@ -47,7 +46,6 @@ export default {
                         const {Search} = res.data;
                         commit('updateState', {
                             movies: [...state.movies, ..._uniqBy(Search, 'imdbID')],
-                            message: 'Hello world!',
                             loading: true
                         })
                     }

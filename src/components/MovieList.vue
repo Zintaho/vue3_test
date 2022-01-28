@@ -4,11 +4,13 @@
           <div class="message">
               {{message}}
           </div>
-          <MovieItem 
-          v-for="movie in movies"
-          :key="movie.imdbID"
-          :movie="movie"
-          />
+          <div class="movies">
+            <MovieItem 
+            v-for="movie in movies"
+            :key="movie.imdbID"
+            :movie="movie"
+            />
+          </div>
       </div>
   </div>
 </template>
@@ -30,6 +32,19 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+@import '../scss/main';
+.container {
+    margin-top: 30px;
+    .inner {
+        background-color: $gray-200;
+        padding: 10px 0;
+        border-radius: 4px;
+    }
+    .movies {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
 </style>
