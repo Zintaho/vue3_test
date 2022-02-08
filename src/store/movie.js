@@ -5,7 +5,7 @@ export default {
     namespaced: true,
     state: () => ({
         movies: [],
-        message: '',
+        message: 'Search for the movie title!',
         loading: false
     }),
     getters: {},
@@ -22,6 +22,15 @@ export default {
     // always async
     actions: {
         async searchMovies({state, commit}, payload) {
+            if (state.loading) {
+                return;
+            }
+
+            commit('updateState' , {
+                message: '',
+                loading: true
+            });
+
             try {            
                 const res = await _fetchMovie({
                     ...payload,
@@ -29,8 +38,7 @@ export default {
                 });
                 const {Search, totalResults} = res.data;
                 commit('updateState', {
-                    movies: _uniqBy(Search, 'imdbID'),
-                    loading: true
+                    movies: _uniqBy(Search, 'imdbID')
                 });
     
                 const total = parseInt(totalResults, 10)
@@ -55,6 +63,10 @@ export default {
                     movies: [],
                     message
                 })                
+            } finally {
+                commit('updateState', {
+                    loading: false
+                })
             }
 
         }
