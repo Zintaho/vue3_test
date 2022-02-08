@@ -1,11 +1,9 @@
 <template>
   <div class="container">
       <div :class="{ 'no-result': !movies.length }" class="inner">
-          <div 
+          <Loader           
             v-if="loading"
-            class="spinner-border text-primary"
-          >
-          </div>
+          />
           <div
             v-if="message"
             class="message"
@@ -24,10 +22,12 @@
 </template>
 
 <script>
-import MovieItem from './MovieItem.vue'
+import MovieItem from './MovieItem.vue';
+import Loader from './Loader.vue';
 export default {
     components: {
-        MovieItem
+        MovieItem,
+        Loader
     },
     computed: {
         movies() {
